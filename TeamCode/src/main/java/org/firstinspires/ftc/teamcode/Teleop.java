@@ -44,7 +44,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 @TeleOp(name="Pride robot 2 player")
 @Config
-public class jacksonTest extends LinearOpMode {
+public class Teleop extends LinearOpMode {
 
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
