@@ -106,10 +106,10 @@ public class Teleop extends LinearOpMode {
 
 
         //Drive base config
-        DcMotor frontLeft = hardwareMap.dcMotor.get("frontLeftMotor");
-        DcMotor backLeft = hardwareMap.dcMotor.get("backLeftMotor");
-        DcMotor frontRight = hardwareMap.dcMotor.get("frontRightMotor");
-        DcMotor backRight = hardwareMap.dcMotor.get("backRightMotor");
+        DcMotor frontLeft = hardwareMap.dcMotor.get("leftFront");
+        DcMotor backLeft = hardwareMap.dcMotor.get("leftBack");
+        DcMotor frontRight = hardwareMap.dcMotor.get("rightFront");
+        DcMotor backRight = hardwareMap.dcMotor.get("rightBack");
         //Claw config
         Servo claw = hardwareMap.servo.get("claw");
 
@@ -128,7 +128,7 @@ public class Teleop extends LinearOpMode {
         Servo horizontalSlides2 = hardwareMap.servo.get("horizontalSlides2");
 
         //intake position
-        CRServo intake = hardwareMap.get(CRServo.class, "intake");
+        DcMotor intake = hardwareMap.get(DcMotor.class, "intake");
         Servo intakeBucket = hardwareMap.servo.get("intakeBucket");
 
         //lift

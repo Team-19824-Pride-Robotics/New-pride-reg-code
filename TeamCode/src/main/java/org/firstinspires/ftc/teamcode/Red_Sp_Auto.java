@@ -8,6 +8,7 @@ import com.acmerobotics.dashboard.telemetry.TelemetryPacket;
 import com.acmerobotics.roadrunner.Action;
 import com.acmerobotics.roadrunner.Pose2d;
 import com.acmerobotics.roadrunner.SequentialAction;
+import com.acmerobotics.roadrunner.TrajectoryActionBuilder;
 import com.acmerobotics.roadrunner.Vector2d;
 import com.acmerobotics.roadrunner.ftc.Actions;
 
@@ -26,22 +27,35 @@ import org.firstinspires.ftc.teamcode.Mechs.claw;
 public class Red_Sp_Auto extends LinearOpMode {
     public static double x1 = 5;
     public static double y1 = 5;
-    public void runOpMode() {
+
+    public void runOpMode() throws InterruptedException {
+
         // instantiate your MecanumDrive at a particular pose.
         Pose2d initialPose = new Pose2d(0, 0, 0);
         MecanumDrive drive = new MecanumDrive(hardwareMap, initialPose);
+
         // make a Claw instance
         claw claw = new claw(hardwareMap);
+
+
+        TrajectoryActionBuilder segment1;
+
+
+        segment1 = drive.actionBuilder(initialPose)
+                .strafeToConstantHeading(new Vector2d(x1, 0));
+        Action seg1 = segment1.build();
+
+
         waitForStart();
+
         if (isStopRequested()) return;
 
         Actions.runBlocking(
-                new SequentialAction(
-                        drive.actionBuilder(initialPose)
-                                .splineTo(new Vector2d(x1, y1), Math.toRadians(0))
 
-                                .build()
-                )
+
+                seg1
+
+
         );
 
     }

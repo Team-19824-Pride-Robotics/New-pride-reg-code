@@ -27,7 +27,7 @@ import com.qualcomm.robotcore.hardware.ServoImplEx;
 
 @Config
 @Autonomous(name = "SpecimenAuto")
-public class Copied_Red_Sp_Auto extends LinearOpMode {
+public class Copied_Red_Sp_Auto extends Teleop {
 //Positions copied from Teleop
     public static int saHeight1 = 1300;
     public static int spHeight1 = 0;
@@ -196,7 +196,7 @@ public class Copied_Red_Sp_Auto extends LinearOpMode {
 
 
     @Override
-    public void runOpMode() throws InterruptedException {
+    public void runOpMode(){
 
 
         // instantiate your MecanumDrive at a particular pose.
@@ -205,7 +205,7 @@ public class Copied_Red_Sp_Auto extends LinearOpMode {
         // make an Intake instance
         Intake intake = new Intake(hardwareMap);
         // make a Lift instance
-        Lift lift = new Lift(hardwareMap);
+
 
 
         TrajectoryActionBuilder segment1;
@@ -306,9 +306,9 @@ public class Copied_Red_Sp_Auto extends LinearOpMode {
                 seg2,
 
                 new ParallelAction(
-                        seg2_5,
-                        lift.specimenPickupHeight(),
-                        lift.specArmPickup()
+                        seg2_5
+
+
                 )
 /*
                 seg3,
